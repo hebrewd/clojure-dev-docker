@@ -5,11 +5,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf'
 
 " Requires
-Plug 'guns/vim-sexp',    {'for': 'clojure'}
-Plug 'liquidz/vim-iced', {'for': 'clojure'}
+Plug 'Olical/conjure', {'tag': 'v4.23.0'}
+
+" Neovim Jackin
+Plug 'tpope/vim-dispatch'
+Plug 'clojure-vim/vim-jack-in'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
 
-" Enable vim-iced's default key mapping
-" This is recommended for newbies
-let g:iced_enable_default_key_mappings = v:true
+let g:coc_global_extensions = ['coc-conjure']
+
