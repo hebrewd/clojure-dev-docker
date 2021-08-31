@@ -5,7 +5,7 @@ USER ${username}
 RUN curl -fLo /home/${username}/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
 	
-COPY dotvim /home/${username}/.config/nvim/init.vim
+COPY --chown=${username}:${username} dotvim /home/${username}/.config/nvim/init.vim
 
 RUN nvim +'PlugInstall --sync' +qa 
 
