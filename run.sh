@@ -1,6 +1,8 @@
 #!/bin/sh
 
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+IMAGENAME=$(basename $PWD)
 docker run -it --rm \
 	-v $HOME/.gitconfig:$HOME/.gitconfig \
 	-v $HOME/.ssh:$HOME/.ssh \
-	clojure-dev-docker:latest /bin/fish
+	${IMAGENAME}:${BRANCH} /bin/fish
